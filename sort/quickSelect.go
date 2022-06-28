@@ -1,5 +1,8 @@
 package sort
 
+// 因为每次只是收敛一个区间，所以复杂度为
+// N + N/2 + N/4 + ... + N/N = N(1-(1/2)^n)/(1-1/2)
+// = 2N(1-(1/2)^n) = 2N => O(N)
 func quickSelect(n []int, left, right, k int) int {
 	i, j := left, right
 	temp := n[i]
