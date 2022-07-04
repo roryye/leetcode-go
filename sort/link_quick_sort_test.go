@@ -7,7 +7,6 @@ import (
 func Test_linkQuickSort(t *testing.T) {
 	type args struct {
 		start *Node
-		end   *Node
 	}
 	tests := []struct {
 		name string
@@ -32,11 +31,22 @@ func Test_linkQuickSort(t *testing.T) {
 				},
 			},
 		},
+		{
+
+			args: args{
+				start: &Node{
+					Val: 2,
+					Next: &Node{
+						Val: 1,
+					},
+				},
+			},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			linkQuickSort(tt.args.start, tt.args.end)
-			printLink(tt.args.start)
+			res := linkQuickSort(tt.args.start)
+			printLink(res)
 		})
 	}
 }
